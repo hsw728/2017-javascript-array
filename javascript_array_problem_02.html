@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+
     <script type="text/javascript">
-        function check_string() {
-          // TODO : 여기에 여러분이 직접 코딩을 해주세요.          
-          return true;
-        }
+
+function check_string()
+{
+    var str = "";
+    
+    for(var i=0; i<arguments.length; i++)
+        str += arguments[i];
+    
+    var str1 = str.split('(');
+    var str2 = str.split(')');
+    
+    return str1.length==str2.length ? true : false;
+}
 
         expect(check_string('(())())'), false);
         expect(check_string('(((()())()'), false);
@@ -14,12 +24,14 @@
         expect(check_string('()()()()(()()())()'), true);
         expect(check_string('(()((())()('), false);
 
-        function expect(l, r) {
-            if (l === r)
-                console.log('pass');
-            else
-                console.log('fail');
+        function expect(l, r)
+	{
+		if (l === r)
+			document.write('pass'+'<br>');
+		else
+			document.write('fail'+'<br>');
         }
+
     </script>
 </head>
 <body>
